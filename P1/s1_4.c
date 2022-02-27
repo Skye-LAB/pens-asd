@@ -6,6 +6,7 @@
 float tambah(int a[], int b[], int x);
 float kurang(int a[], int b[], int x);
 float kali(int a[], int b[], int x);
+float turun(int a[], int x);
 
 int main(int argc, char *argv[]) {
 
@@ -26,6 +27,9 @@ int main(int argc, char *argv[]) {
 
   hasil = kali(p1, p3, x);
   printf("p1 * p2 = %.2f\n", hasil);
+
+  hasil = turun(p2, x);
+  printf("p2' = %.2f\n", hasil);
 
   return 0;
 }
@@ -60,7 +64,11 @@ float kali(int a[], int b[], int x) {
   return hasil;
 }
 
-float turun(int a[], int b[], int x) {
-  float hasil = 0.0;
-  return hasil;
+float turun(int a[], int x) {
+    float hasil=0.0;
+
+    for(int i=0; i<N; i++)
+        hasil += a[i] * i * (float) pow(x,i-1);
+
+    return hasil;
 }
