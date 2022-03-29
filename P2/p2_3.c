@@ -1,6 +1,6 @@
 #include "stdio.h"
 #include <string.h>
-#define MAX 25
+#define MAX 50
 
 typedef int Itemtype;
 typedef struct {

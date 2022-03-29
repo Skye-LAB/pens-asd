@@ -25,7 +25,7 @@ int qPenuh(Queue *q) { return (q->count == MAX); }
 
 void qEnqueue(Queue *q, Itemtype x) {
   if (qPenuh(q))
-    printf("Queue Penuh, Data tidak dapat disimpan\n");
+    printf("Queue Penuh\n");
   else {
     q->item[q->rear] = x;
     q->rear = (q->rear + 1) % MAX;
@@ -36,7 +36,7 @@ void qEnqueue(Queue *q, Itemtype x) {
 Itemtype qDequeue(Queue *q) {
   Itemtype temp = -1;
   if (qKosong(q)) {
-    printf("Queue Kosong, tidak dapat mengambil data\n");
+    printf("Queue Kosong\n");
     return ' ';
   } else {
     temp = q->item[q->front];

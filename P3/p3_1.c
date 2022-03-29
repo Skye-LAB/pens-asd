@@ -1,5 +1,5 @@
-#include "stdio.h"
 #include "math.h"
+#include "stdio.h"
 
 #define MAX 50
 typedef int Itemtype;
@@ -60,12 +60,12 @@ int main(int argc, char *argv[]) {
     des /= 2;
   }
 
-  for (i = 0; i < shift; i++) 
+  for (i = 0; i < shift; i++)
     Enqueue(&antrian, Dequeue(&antrian));
 
   i = 0;
   while (!Kosong(&antrian)) {
-    hasil +=Dequeue(&antrian) * (int) pow(2, i);
+    hasil += Dequeue(&antrian) * (int)pow(2, i);
     i++;
   }
 
