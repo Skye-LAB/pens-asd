@@ -101,6 +101,7 @@ void hapus_x(int x) {
       hapus_tengah(x);
   }
 }
+
 int main() {
   int dt, pilih, hps;
   char lagi = 'y';

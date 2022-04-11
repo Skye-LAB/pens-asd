@@ -124,7 +124,9 @@ void update_x(int x, char nama[], int kelas) {
     p = head;
     while (p != NULL && p->nrp != x)
       p = p->next;
-    if (p->next == NULL) {
+    if (p == NULL) {
+      printf("Simpul tidak ada");
+    } else if (p->next == NULL) {
       tail->kelas = kelas;
       strcpy(tail->nama, nama);
     } else if (p->nrp == x) {

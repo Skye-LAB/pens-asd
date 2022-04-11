@@ -1,7 +1,7 @@
 #include "math.h"
 #include "stdio.h"
 
-#define MAX 50
+#define MAX 100
 typedef int Itemtype;
 typedef struct {
   Itemtype item[MAX];
