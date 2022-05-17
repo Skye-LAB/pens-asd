@@ -18,6 +18,23 @@ int sequential(int data[], int target) {
     return -1;
 }
 
+int sequential_sorted(int data[], int target) {
+  int i = 0, ketemu = 0;
+  while (i < N && !ketemu) {
+    if (data[i] == target)
+      ketemu = 1;
+    else if (data[i] > target) {
+      printf("\nBerhenti di indeks ke-%d", i);
+      return -1;
+    } else
+      i++;
+  }
+  if (ketemu)
+    return i;
+  else
+    return -1;
+}
+
 int binary(int data[], int target) {
   int l = 0, r = N - 1, m, ketemu = 0;
   while (l <= r && !ketemu) {
@@ -33,35 +50,6 @@ int binary(int data[], int target) {
     return m;
   else
     return -1;
-}
-
-int partisi(int data[], int p, int r) {
-  int pivot, i, j, temp;
-  pivot = data[p];
-  i = p;
-  j = r;
-  while (i < j) {
-    while (data[i] < pivot)
-      i++;
-    while (data[j] > pivot)
-      j--;
-    if (i < j) {
-      temp = data[i];
-      data[i] = data[j];
-      data[j] = temp;
-    } else
-      return j;
-  }
-  return j;
-}
-
-void quick(int data[], int p, int r) {
-  int q;
-  if (p < r) {
-    q = partisi(data, p, r);
-    quick(data, p, q);
-    quick(data, q + 1, r);
-  }
 }
 
 void merge(int data[], int l, int m, int r) {
@@ -130,7 +118,8 @@ int main(int argc, char *argv[]) {
     printf("\nTarget: %d\n", target);
 
     printf("1. Sequential Sort\n");
-    printf("2. Binary Sort\n");
+    printf("2. Sequential Sort(sorted)\n");
+    printf("3. Binary Sort\n");
     printf("Pilihan: ");
     fflush(stdin);
     scanf("%d", &pilih);
@@ -140,12 +129,19 @@ int main(int argc, char *argv[]) {
       indeks = sequential(data, target);
       break;
     case 2:
-      // quick(data, 0, N - 1);
+      merge_sort(data, 0, N - 1);
+      for (int i = 0; i < N; i++) {
+        printf("%d ", data[i]);
+      }
+      indeks = sequential_sorted(data, target);
+      break;
+    case 3:
       merge_sort(data, 0, N - 1);
       for (int i = 0; i < N; i++) {
         printf("%d ", data[i]);
       }
       indeks = binary(data, target);
+      break;
     }
 
     if (indeks >= 0) {
