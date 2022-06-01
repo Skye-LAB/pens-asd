@@ -1,7 +1,7 @@
 #include "stdio.h"
 
 #define MAX 5
-#define N 5
+#define N 6
 #define M 1000
 
 typedef int Itemtype;
@@ -67,23 +67,26 @@ void warshall(int q[N][N], int p[N][N], int r[N][N]) {
 }
 
 int main(int argc, char *argv[]) {
-  int q[N][N] = {{M, 1, 3, M, M},
-                 {M, M, 1, M, 5},
-                 {3, M, M, 2, M},
-                 {M, M, M, M, 1},
-                 {M, M, M, M, M}};
+  int q[N][N] = {{M, 4, 3, M, M, M},
+                 {M, M, 5, 2, M, M},
+                 {M, M, M, 7, M, M},
+                 {M, M, M, M, 2, M},
+                 {4, 4, M, M, M, 6},
+                 {M, M, M, M, M, M}};
 
-  int p[N][N] = {{0, 1, 1, 0, 0},
-                 {0, 0, 1, 0, 1},
-                 {1, 0, 0, 1, 0},
-                 {0, 0, 0, 0, 1},
-                 {0, 0, 0, 0, 0}};
+  int p[N][N] = {{0, 1, 1, 0, 0, 0},
+                 {0, 0, 1, 1, 0, 0},
+                 {0, 0, 0, 1, 0, 0},
+                 {0, 0, 0, 0, 1, 0},
+                 {1, 1, 0, 0, 0, 1},
+                 {0, 0, 0, 0, 0, 0}};
 
-  int r[N][N] = {{M, 0, 0, M, M},
-                 {M, M, 0, M, 0},
-                 {0, M, M, 0, M},
-                 {M, M, M, M, 0},
-                 {M, M, M, M, M}};
+  int r[N][N] = {{M, 0, 0, M, M, M},
+                 {M, M, 0, 0, M, M},
+                 {M, M, M, 0, M, M},
+                 {M, M, M, M, 0, M},
+                 {0, 0, M, M, M, 0},
+                 {M, M, M, M, M, M}};
 
   printf("Sebelum:\n");
   cetak(q, "Beban");
